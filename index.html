@@ -1,319 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Valentine Prank — For Mallika (Tanu)</title>
-  <style>
-    :root{
-      --bg1:#ff9a9e;
-      --bg2:#fecfef;
-      --accent:#ff6b6b;
-      --text:#2b2b2b;
-    }
-    html,body{height:100%;margin:0;font-family:system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;}
-    body{
-      background: radial-gradient(circle at 10% 10%, rgba(255,255,255,0.12), transparent 10%), linear-gradient(135deg,var(--bg1),var(--bg2));
-      display:flex;align-items:center;justify-content:center;
-      overflow:hidden;color:var(--text);
-    }
-    .card{
-      width:92vw;max-width:860px;background:rgba(255,255,255,0.12);backdrop-filter: blur(6px);border-radius:20px;padding:28px;box-shadow:0 10px 30px rgba(0,0,0,0.12);position:relative;overflow:hidden;
-    }
-    h1{margin:0;font-size:clamp(22px,4vw,36px);text-align:center;letter-spacing:0.6px}
-    .sub{margin-top:8px;text-align:center;font-size:clamp(14px,2.4vw,18px);opacity:0.95}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ask Her Out</title>
 
-    .buttons{display:flex;gap:18px;justify-content:center;margin-top:22px;position:relative}
-    button{padding:12px 22px;border-radius:999px;border:0;font-weight:700;font-size:16px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,0.12);transition:transform .18s ease, box-shadow .18s ease;}
-    button:active{transform:translateY(2px)}
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div
+        class="tenor-gif-embed"
+        data-postid="22885016"
+        data-share-method="host"
+        data-aspect-ratio="1.04918"
+        data-width="100%"
+      >
+        <a href="https://tenor.com/view/manja-gif-22885016">Manja Sticker</a
+        >from
+        <a href="https://tenor.com/search/manja-stickers">Manja Stickers</a>
+      </div>
+      <script
+        type="text/javascript"
+        async
+        src="https://tenor.com/embed.js"
+      ></script>
+      <h1>DO you love me? 🤗</h1>
+      <p>~Ankit is all yours</p>
 
-    .yes{background:linear-gradient(90deg,#ff9a9e,#ff6b6b);color:white}
-    .no{background:linear-gradient(90deg,#ffd1dc,#ffb3c0);color:#6f1d1b;position:absolute}
-
-    /* little floating hearts background */
-    .bg-heart{position:absolute;inset:0;pointer-events:none;}
-    .bg-heart i{position:absolute;font-size:24px;opacity:0.08;transform:translate(-50%,-50%);}
-
-    /* falling emojis container */
-    .rain{
-      position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:20;
-    }
-    .fall{
-      position:absolute;top:-5vh;left:50%;font-size:28px;animation-name:fall;animation-timing-function:linear;animation-iteration-count:1;will-change:transform,opacity;
-    }
-    @keyframes fall{
-      to{transform:translateY(110vh) rotate(360deg);opacity:0.12}
-    }
-
-    /* proposal reveal */
-    .propose{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));backdrop-filter: blur(4px);z-index:40;}
-    .propose img{max-width:70%;height:auto;border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,0.25)}
-    .propose h2{color:#fff;text-shadow:0 4px 18px rgba(0,0,0,0.25)}
-
-    /* neat little confetti burst */
-    .confetti-piece{position:absolute;width:10px;height:14px;background:white;opacity:0;transform-origin:center;}
-
-    /* small responsive tweaks */
-    @media (max-width:520px){
-      .buttons{gap:12px}
-      button{padding:10px 14px;font-size:15px}
-      .no{font-size:14px}
-    }
-  </style>
-</head>
-<body>
-  <div class="card" id="card">
-    <h1 id="title">Do you love me, Mallika (Tanu)?</h1>
-    <p class="sub" id="subtitle">Be honest 🥺</p>
-
-    <div class="buttons" id="buttons">
-      <button class="yes" id="yesBtn">Yes 💖</button>
-      <button class="no" id="noBtn" aria-label="No button">No 😒</button>
+      <div class="btn">
+        <a href="yes.html">Yes</a>
+        <a href="no1.html">No</a>
+      </div>
     </div>
-
-    <div class="bg-heart" id="bgHeart"></div>
-    <div class="rain" id="rain"></div>
-    <div class="propose" id="propose" style="display:none"></div>
-  </div>
-
-  <!-- optional music: replace the src with your own mp3 for best results -->
-  <audio id="music" loop preload="auto">
-    <!-- You can replace the src below with any MP3 URL you like -->
-    <source src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_3e6b8b8a44.mp3?filename=romantic-116559.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-
-  <script>
-    // Elements
-    const yesBtn = document.getElementById('yesBtn');
-    const noBtn = document.getElementById('noBtn');
-    const card = document.getElementById('card');
-    const rain = document.getElementById('rain');
-    const bgHeart = document.getElementById('bgHeart');
-    const title = document.getElementById('title');
-    const subtitle = document.getElementById('subtitle');
-    const propose = document.getElementById('propose');
-    const music = document.getElementById('music');
-
-    // stage tracker: 0 = love, 1 = marry
-    let stage = 0;
-
-    // place no button initially to the right (relative to buttons container)
-    function placeNoInitial(){
-      const btns = document.getElementById('buttons');
-      const rect = btns.getBoundingClientRect();
-      // position within the buttons container
-      noBtn.style.position = 'absolute';
-      noBtn.style.left = Math.min(rect.width-100, rect.width/2 + 60) + 'px';
-      noBtn.style.top = '0px';
-    }
-    placeNoInitial();
-    window.addEventListener('resize', placeNoInitial);
-
-    // make floating subtle hearts background
-    (function createBGHearts(){
-      const emojis = ['❤','💘','💕','💞','💓','😘'];
-      for(let i=0;i<12;i++){
-        const el = document.createElement('i');
-        el.textContent = emojis[i%emojis.length];
-        const x = Math.random()*100;
-        const y = Math.random()*100;
-        el.style.left = x+'%';
-        el.style.top = y+'%';
-        el.style.transform = `translate(-50%, -50%) scale(${0.6 + Math.random()*1.4}) rotate(${Math.random()*45}deg)`;
-        el.style.opacity = (0.03 + Math.random()*0.06).toFixed(2);
-        bgHeart.appendChild(el);
-      }
-    })();
-
-    // function to spawn falling emojis (hearts, kisses)
-    function startRain(amount=30){
-      const icons = ['❤','💖','💘','💋','🥰','💞'];
-      for(let i=0;i<amount;i++){
-        const d = document.createElement('div');
-        d.className='fall';
-        d.textContent = icons[Math.floor(Math.random()*icons.length)];
-        const left = Math.random()*100;
-        d.style.left = left + '%';
-        const size = 14 + Math.random()*36;
-        d.style.fontSize = size + 'px';
-        const duration = 4 + Math.random()*4;
-        d.style.animationDuration = duration + 's';
-        d.style.opacity = 0.9;
-        rain.appendChild(d);
-        // remove when done
-        setTimeout(()=>{ d.remove(); }, (duration+0.4)*1000);
-      }
-    }
-
-    // confetti/heart burst (used on yes and proposal)
-    function burstConfetti(count=20){
-      const colors = ['#ff6b6b','#ff9a9e','#ffd1dc','#ffb3c0','#fff1f3'];
-      for(let i=0;i<count;i++){
-        const el = document.createElement('div');
-        el.className='confetti-piece';
-        el.style.left = (50 + (Math.random()-0.5)*60) + '%';
-        el.style.top = (50 + (Math.random()-0.5)*20) + '%';
-        el.style.background = colors[Math.floor(Math.random()*colors.length)];
-        el.style.opacity = 1;
-        el.style.transform = `translate(-50%,-50%) rotate(${Math.random()*360}deg)`;
-        el.style.width = (6 + Math.random()*10)+'px';
-        el.style.height = (8 + Math.random()*12)+'px';
-        el.style.borderRadius = '2px';
-        el.style.zIndex = 60;
-        card.appendChild(el);
-        // animate
-        const dx = (Math.random()-0.5)*160;
-        const dy = -200 - Math.random()*220;
-        const anim = el.animate([
-          { transform: `translate(-50%, -50%) translate(0px,0px) rotate(0deg)`, opacity:1 },
-          { transform: `translate(-50%, -50%) translate(${dx}px, ${dy}px) rotate(${Math.random()*720}deg)`, opacity:0 }
-        ], { duration: 700 + Math.random()*900, easing: 'cubic-bezier(.2,.8,.3,1)'} );
-        anim.onfinish = ()=> el.remove();
-      }
-    }
-
-    // on yes: play rain, sparkle and after a bit move to next question
-    yesBtn.addEventListener('click', ()=>{
-      // first click: show love rain and gentle pulse
-      if(stage === 0){
-        startRain(40);
-        // play music softly (user gesture is provided by click)
-        music.volume = 0.45; try{ music.play(); } catch(e){}
-        // little heart burst
-        burstConfetti(28);
-        // after short delay, change to next question
-        setTimeout(()=>{
-          nextQuestion();
-        }, 1200);
-      } else if(stage === 1){
-        // final yes -> proposal image
-        showProposal();
-      }
-    });
-
-    // Accessibility: allow Enter key to activate yes
-    yesBtn.addEventListener('keyup', (e)=>{ if(e.key === 'Enter'){ yesBtn.click(); }});
-
-    // next question: Will you marry me?
-    function nextQuestion(){
-      stage = 1;
-      title.textContent = 'Will you marry me, Mallika (Tanu)?';
-      subtitle.textContent = 'Say yes and make me the happiest ❤️';
-
-      // move yes a touch to center
-      yesBtn.classList.add('yes');
-      yesBtn.style.transform = 'scale(1.02)';
-      setTimeout(()=>yesBtn.style.transform = 'none',260);
-    }
-
-    // No button evasive behavior — Touch-Chase Mode
-    let lastTouch = {x:null,y:null};
-    function moveNoChase(x, y){
-      const rect = card.getBoundingClientRect();
-      const noRect = noBtn.getBoundingClientRect();
-
-      // vector away from finger
-      const dx = (noRect.left + noRect.width/2) - x;
-      const dy = (noRect.top + noRect.height/2) - y;
-      const dist = Math.sqrt(dx*dx + dy*dy) || 1;
-
-      // scale movement based on proximity
-      const speed = Math.max(80, 260 - Math.min(200, dist));
-      const newLeft = noRect.left + (dx/dist)*speed;
-      const newTop = noRect.top + (dy/dist)*speed;
-
-      // boundaries (relative to card)
-      const relLeft = newLeft - rect.left;
-      const relTop = newTop - rect.top;
-      const clampedLeft = Math.max(8, Math.min(rect.width - noRect.width - 8, relLeft));
-      const clampedTop = Math.max(8, Math.min(rect.height - noRect.height - 8, relTop));
-
-      noBtn.style.transition = 'left .22s ease, top .22s ease, transform .22s ease';
-      noBtn.style.left = clampedLeft + 'px';
-      noBtn.style.top = clampedTop + 'px';
-      noBtn.style.transform = `rotate(${Math.random()*24-12}deg)`;
-    }
-
-    // Track finger and dodge
-    document.addEventListener('touchmove', (e)=>{
-      const t = e.touches[0];
-      if(!t) return;
-      const x = t.clientX;
-      const y = t.clientY;
-      lastTouch = {x,y};
-
-      const noRect = noBtn.getBoundingClientRect();
-      const centerX = noRect.left + noRect.width/2;
-      const centerY = noRect.top + noRect.height/2;
-
-      const distance = Math.hypot(centerX - x, centerY - y);
-
-      if(distance < 160){
-        moveNoChase(x,y);
-      }
-    }, {passive:true});
-
-    // Prevent clicking No — nudge it away instead
-    let noAttempts = 0;
-    noBtn.addEventListener('click', (e)=>{
-      e.preventDefault();
-      noAttempts++;
-      if(lastTouch.x && lastTouch.y){
-        moveNoChase(lastTouch.x, lastTouch.y);
-      } else {
-        // fallback: move to a random spot
-        const rX = (Math.random()*0.8 + 0.1) * window.innerWidth;
-        const rY = (Math.random()*0.6 + 0.2) * window.innerHeight;
-        moveNoChase(rX, rY);
-      }
-      if(noAttempts > 8){
-        subtitle.textContent = "I know you want to — just press Yes 💕";
-        startRain(18);
-      }
-    });
-
-    // Show proposal image and final message
-    function showProposal(){
-      // stop interactions
-      noBtn.style.display='none';
-      yesBtn.style.display='none';
-      title.style.display='none';
-      subtitle.style.display='none';
-      // keep music playing
-      music.volume = 0.55;
-
-      propose.style.display='flex';
-      propose.innerHTML = '';
-      // image — valentiney proposing groom picture (you can replace this URL)
-      const img = document.createElement('img');
-      img.src = 'https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=1600&q=80';
-      img.alt = 'Proposing groom';
-      const h2 = document.createElement('h2');
-      h2.innerHTML = 'Will you marry me, Mallika? 💍';
-      const p = document.createElement('p');
-      p.style.color='rgba(255,255,255,0.95)';
-      p.style.textShadow='0 6px 18px rgba(0,0,0,0.25)';
-      p.style.fontSize='18px';
-      p.innerText = 'Forever starts today...';
-
-      propose.appendChild(img);
-      propose.appendChild(h2);
-      propose.appendChild(p);
-
-      // gentle continued emoji rain and big confetti
-      startRain(60);
-      burstConfetti(48);
-
-      // small pulse around image
-      img.animate([{transform:'scale(0.98)'},{transform:'scale(1.02)'},{transform:'scale(1)'}],{duration:2200,iterations:Infinity});
-    }
-
-    // On load: small intro animation
-    window.addEventListener('load', ()=>{
-      card.animate([{transform:'translateY(6px)',opacity:0},{transform:'translateY(0)',opacity:1}],{duration:680,easing:'cubic-bezier(.2,.9,.3,1)'});
-    });
-
-  </script>
-</body>
+  </body>
 </html>
